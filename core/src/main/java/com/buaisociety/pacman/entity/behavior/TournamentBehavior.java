@@ -7,6 +7,7 @@ import com.buaisociety.pacman.entity.PacmanEntity;
 import com.buaisociety.pacman.maze.Tile;
 import com.buaisociety.pacman.maze.TileState;
 import com.cjcrafter.neat.compute.Calculator;
+import java.util.concurrent.ThreadLocalRandom;
 
 import java.util.Map;
 
@@ -76,7 +77,10 @@ public class TournamentBehavior implements Behavior {
         
         // Input nodes 1, 2, 3, and 4 show if the pacman can move in the forward, left, right, and behind directions
         
-
+        if (framesSinceScoreUpdate > 40 * 10) {
+            randomNumber = ThreadLocalRandom.current().nextFloat();
+            randomNumber += 1;
+        }
 
 
         for (int i = 0; i < 100; i++) {
